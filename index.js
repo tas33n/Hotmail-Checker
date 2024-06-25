@@ -9,7 +9,7 @@ const { ImapFlow } = require('imapflow');
     // Boolean values to enable/disable various filters
     const enableNetflixFilter = false;
     const enablePayPalFilter = false;
-    const enableFacebookFilter = true;
+    const enableFacebookFilter = false;
     const enableInstagramFilter = false;
     const enableTwitterFilter = false;
 
@@ -37,11 +37,9 @@ const { ImapFlow } = require('imapflow');
             return;
         }
 
-        // Log the current date, time, file name, and number of lines
         const currentDate = new Date();
         const logHeader = `Date: ${currentDate.toLocaleString()}\nFile: ${inputFileName}\nNumber of lines: ${data.trim().split('\n').length}\n\n`;
 
-        // Append the log header to live.txt and dead.txt
         fs.appendFileSync('live.txt', logHeader, 'utf8');
         fs.appendFileSync('dead.txt', logHeader, 'utf8');
 
