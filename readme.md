@@ -1,4 +1,4 @@
-# Email Authentication and Filtering Script
+# Hotmail Checker
 
 This project is a Node.js script that authenticates email accounts and filters them based on specific criteria such as Netflix, PayPal, Facebook, Instagram, and Twitter emails. The results are logged into `live.txt` and `dead.txt` files.
 
@@ -12,8 +12,8 @@ This project is a Node.js script that authenticates email accounts and filters t
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/email-auth-filter.git
-    cd email-auth-filter
+    git clone https://github.com/yourusername/Hotmail-Checker.git
+    cd Hotmail-Checker
     ```
 
 2. **Install dependencies**:
