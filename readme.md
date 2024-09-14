@@ -12,7 +12,7 @@ This project is a Node.js script that authenticates email accounts and filters t
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/Hotmail-Checker.git
+    git clone https://github.com/tas33n/hotmail-checker.git
     cd Hotmail-Checker
     ```
 
