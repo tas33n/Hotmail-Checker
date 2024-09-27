@@ -1,8 +1,32 @@
 {
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.2",
     "fs": "^0.0.1-security",
     "imapflow": "^1.0.162",
-    "nodemailer": "^6.9.14"
-  }
+    "nodemailer": "^6.9.14",
+    "readline": "^1.3.0"
+  },
+  "name": "hotmail-checker",
+  "version": "2.0.0",
+  "description": "This project is a Node.js script that authenticates email accounts and filters them based on specific criteria such as Netflix, PayPal, Facebook, Instagram, and Twitter emails. The results are logged into live.txt and dead.txt files.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tas33n/Hotmail-Checker.git"
+  },
+  "keywords": [
+    "hotmail-checker",
+    "nodejs",
+    "hotmail-hecker-js"
+  ],
+  "author": "tas33n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tas33n/Hotmail-Checker/issues"
+  },
+  "homepage": "https://github.com/tas33n/Hotmail-Checker#readme"
 }
