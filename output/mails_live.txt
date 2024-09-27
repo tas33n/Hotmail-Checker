@@ -180,3 +180,15 @@ File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
 Date: 9/27/2024, 12:15:10 PM
 File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
 
+Date: 9/27/2024, 12:16:14 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+Date: 9/27/2024, 12:17:37 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+Date: 9/27/2024, 12:22:37 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+Date: 9/27/2024, 12:23:48 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
