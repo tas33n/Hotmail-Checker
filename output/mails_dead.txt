@@ -184,3 +184,53 @@ mmamego@hotmail.com:Cristian12
 xxtrtrx65@outlook.com:.123xmi.09
 rodrilson_machado@hotmail.com:Machado007*
 jhony_boss@hotmail.com:3mpr3nd3dor01
+Date: 9/27/2024, 11:39:41 AM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+lucas.banh@hotmail.com:Lb654595
+luccafreitas13@outlook.com:Luccaf13
+sidneiguarda@hotmail.com:Sid@35235370
+mai.mctelecom@hotmail.com:Maimai1986#@
+sandovalaron@outlook.com:Sandoval2171!!!!!
+jorgem.huerta@hotmail.com:jorge1972*
+love1445@hotmail.com:Marjorie1?
+silvia_cruzr@hotmail.com:Gasi0511
+geminicricket1@hotmail.com:Bibi5656***
+chan0405@hotmail.com:Silverchair88!
+Date: 9/27/2024, 11:44:19 AM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511
+lucas.banh@hotmail.com:Lb654595
+sidneiguarda@hotmail.com:Sid@35235370
+chan0405@hotmail.com:Silverchair88!
+luccafreitas13@outlook.com:Luccaf13
+love1445@hotmail.com:Marjorie1?
+sandovalaron@outlook.com:Sandoval2171!!!!!
+geminicricket1@hotmail.com:Bibi5656***
+mai.mctelecom@hotmail.com:Maimai1986#@
+jorgem.huerta@hotmail.com:jorge1972*
+martha.sv12@hotmail.com:Martha1029$$$
+ivy-rj@hotmail.com:Jenifferduarte
+paniaguamtz1@hotmail.com:Alepaniagua01
+camilochis2008@hotmail.com:cuervodeodin123
+m_urena1@hotmail.com:johanrosa123
+gil.gmviana@hotmail.com:Gs@20082016
+katiegunderson@hotmail.com:Katgun01
+fp20088888888@outlook.com:Marijapantelic2008
+Date: 9/27/2024, 11:55:45 AM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511
+lucas.banh@hotmail.com:Lb654595
+Date: 9/27/2024, 12:11:52 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+Date: 9/27/2024, 12:13:01 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+Date: 9/27/2024, 12:15:10 PM
+File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
+
