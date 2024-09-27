@@ -250,3 +250,162 @@ Date: 9/27/2024, 12:23:48 PM
 File: C:\xPROGRAM-LABS\HOTMAIL-CHECKER-JS\input\mails.txt
 
 silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+Date: 9/27/2024, 10:15:06 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+Date: 9/27/2024, 10:16:49 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Error: Navigating frame was detached
+Date: 9/27/2024, 10:19:09 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Error: Navigating frame was detached
+Date: 9/27/2024, 10:24:39 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+luccafreitas13@outlook.com:Luccaf13 | Error: Execution context was destroyed, most likely because of a navigation.
+love1445@hotmail.com:Marjorie1? | Error: Execution context was destroyed, most likely because of a navigation.
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: Execution context was destroyed, most likely because of a navigation.
+geminicricket1@hotmail.com:Bibi5656*** | Error: Execution context was destroyed, most likely because of a navigation.
+Date: 9/27/2024, 10:29:12 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: No element found for selector: #i0118
+Date: 9/27/2024, 10:32:52 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: No element found for selector: #i0118
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0118
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+Date: 9/27/2024, 10:39:06 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: page is not defined
+lucas.banh@hotmail.com:Lb654595 | Error: page is not defined
+sidneiguarda@hotmail.com:Sid@35235370 | Error: page is not defined
+chan0405@hotmail.com:Silverchair88! | Error: page is not defined
+luccafreitas13@outlook.com:Luccaf13 | Error: page is not defined
+love1445@hotmail.com:Marjorie1? | Error: page is not defined
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: page is not defined
+geminicricket1@hotmail.com:Bibi5656*** | Error: page is not defined
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: page is not defined
+jorgem.huerta@hotmail.com:jorge1972* | Error: page is not defined
+martha.sv12@hotmail.com:Martha1029$$$ | Error: page is not defined
+ivy-rj@hotmail.com:Jenifferduarte | Error: page is not defined
+paniaguamtz1@hotmail.com:Alepaniagua01 | Error: page is not defined
+camilochis2008@hotmail.com:cuervodeodin123 | Error: page is not defined
+m_urena1@hotmail.com:johanrosa123 | Error: page is not defined
+gil.gmviana@hotmail.com:Gs@20082016 | Error: page is not defined
+katiegunderson@hotmail.com:Katgun01 | Error: page is not defined
+fp20088888888@outlook.com:Marijapantelic2008 | Error: page is not defined
+mariapena_27@hotmail.com:maxpena137 | Error: page is not defined
+jessi_yana1998@hotmail.com:Sully1998 | Error: page is not defined
+reymonapr@hotmail.com:8092674575R | Error: page is not defined
+quintinwilliams@hotmail.com:1Jesuschrist | Error: page is not defined
+mmamego@hotmail.com:Cristian12 | Error: page is not defined
+rodrilson_machado@hotmail.com:Machado007* | Error: page is not defined
+xxtrtrx65@outlook.com:.123xmi.09 | Error: page is not defined
+belkisbreman@hotmail.com:Naruto25 | Error: page is not defined
+jhony_boss@hotmail.com:3mpr3nd3dor01 | Error: page is not defined
+dionatanricardo@hotmail.com:c1150416 | Error: page is not defined
+Date: 9/27/2024, 10:39:58 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Error: page is not defined
+lucas.banh@hotmail.com:Lb654595 | Error: page is not defined
+sidneiguarda@hotmail.com:Sid@35235370 | Error: page is not defined
+chan0405@hotmail.com:Silverchair88! | Error: page is not defined
+luccafreitas13@outlook.com:Luccaf13 | Error: page is not defined
+love1445@hotmail.com:Marjorie1? | Error: page is not defined
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: page is not defined
+geminicricket1@hotmail.com:Bibi5656*** | Error: page is not defined
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: page is not defined
+jorgem.huerta@hotmail.com:jorge1972* | Error: page is not defined
+martha.sv12@hotmail.com:Martha1029$$$ | Error: page is not defined
+ivy-rj@hotmail.com:Jenifferduarte | Error: page is not defined
+Date: 9/27/2024, 10:40:30 PM
+File: G:\Hotmail-Check-Puppy\input\mails.txt
+
+silvia_cruzr@hotmail.com:Gasi0511 | Email Error: 
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0118
+sidneiguarda@hotmail.com:Sid@35235370 | Error: No element found for selector: #i0118
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+dionatanricardo@hotmail.com:c1150416 | Error: Waiting for selector `#idSIButton9` failed: Waiting failed: 30000ms exceeded
+dionatanricardo@hotmail.com:c1150416 | Error: Waiting for selector `#idSIButton9` failed: Waiting failed: 30000ms exceeded
+dionatanricardo@hotmail.com:c1150416 | Error: Navigation timeout of 30000 ms exceeded
+dionatanricardo@hotmail.com:c1150416 | Error: Navigation timeout of 30000 ms exceeded
+dionatanricardo@hotmail.com:c1150416 | Error: No element found for selector: button[aria-label="Search"]
+dionatanricardo@hotmail.com:c1150416 | Error: No element found for selector: button[aria-label="Search"]
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+silvia_cruzr@hotmail.com:Gasi0511 | Error: No element found for selector: button[aria-label="Search"]
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Waiting for selector `button[aria-label="Search"]` failed: Waiting failed: 30000ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Waiting for selector `button[aria-label="Search"]` failed: Waiting failed: 30000ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Waiting for selector `button[aria-label="Search"]` failed: Waiting failed: 30000ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Waiting for selector `button[aria-label="Search"]` failed: Waiting failed: 30000ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Navigation timeout of 30000 ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: No element found for selector: button[class="nUPgy"]
+lucas.banh@hotmail.com:Lb654595 | Error: Waiting for selector `#i0118` failed: Waiting failed: 5000ms exceeded
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+luccafreitas13@outlook.com:Luccaf13 | Error: Execution context was destroyed, most likely because of a navigation.
+love1445@hotmail.com:Marjorie1? | Error: Execution context was destroyed, most likely because of a navigation.
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: Execution context was destroyed, most likely because of a navigation.
+geminicricket1@hotmail.com:Bibi5656*** | Error: Execution context was destroyed, most likely because of a navigation.
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: Execution context was destroyed, most likely because of a navigation.
+jorgem.huerta@hotmail.com:jorge1972* | Error: Execution context was destroyed, most likely because of a navigation.
+martha.sv12@hotmail.com:Martha1029$$$ | Error: Execution context was destroyed, most likely because of a navigation.
+ivy-rj@hotmail.com:Jenifferduarte | Error: Execution context was destroyed, most likely because of a navigation.
+paniaguamtz1@hotmail.com:Alepaniagua01 | Error: Execution context was destroyed, most likely because of a navigation.
+camilochis2008@hotmail.com:cuervodeodin123 | Error: Execution context was destroyed, most likely because of a navigation.
+m_urena1@hotmail.com:johanrosa123 | Error: Execution context was destroyed, most likely because of a navigation.
+gil.gmviana@hotmail.com:Gs@20082016 | Error: Execution context was destroyed, most likely because of a navigation.
+katiegunderson@hotmail.com:Katgun01 | Error: Execution context was destroyed, most likely because of a navigation.
+fp20088888888@outlook.com:Marijapantelic2008 | Error: Execution context was destroyed, most likely because of a navigation.
+mariapena_27@hotmail.com:maxpena137 | Error: Execution context was destroyed, most likely because of a navigation.
+jessi_yana1998@hotmail.com:Sully1998 | Error: Execution context was destroyed, most likely because of a navigation.
+reymonapr@hotmail.com:8092674575R | Error: Execution context was destroyed, most likely because of a navigation.
+quintinwilliams@hotmail.com:1Jesuschrist | Error: Execution context was destroyed, most likely because of a navigation.
+mmamego@hotmail.com:Cristian12 | Error: Execution context was destroyed, most likely because of a navigation.
+rodrilson_machado@hotmail.com:Machado007* | Error: Execution context was destroyed, most likely because of a navigation.
+xxtrtrx65@outlook.com:.123xmi.09 | Error: Execution context was destroyed, most likely because of a navigation.
+belkisbreman@hotmail.com:Naruto25 | Error: Execution context was destroyed, most likely because of a navigation.
+jhony_boss@hotmail.com:3mpr3nd3dor01 | Error: Execution context was destroyed, most likely because of a navigation.
+dionatanricardo@hotmail.com:c1150416 | Error: Navigation timeout of 30000 ms exceeded
+silvia_cruzr@hotmail.com:Gasi0511 | Error: Navigating frame was detached
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Error: Waiting for selector `#i0118` failed: Waiting failed: 5000ms exceeded
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Error: Waiting for selector `#i0118` failed: Waiting failed: 5000ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
