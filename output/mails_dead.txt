@@ -409,3 +409,20 @@ lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requir
 lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
 lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
 lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0116
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0116
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Navigating frame was detached
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+luccafreitas13@outlook.com:Luccaf13 | Error: Waiting for selector `#topSearchInput` failed: Waiting failed: 30000ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Error: Navigating frame was detached
