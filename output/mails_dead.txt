@@ -421,3 +421,75 @@ lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requir
 sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
 chan0405@hotmail.com:Silverchair88! | Error: Navigation timeout of 30000 ms exceeded
 luccafreitas13@outlook.com:Luccaf13 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+luccafreitas13@outlook.com:Luccaf13 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#kmsiTitle` failed: Protocol error (Runtime.callFunctionOn): Target closed
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#i0118` failed: Waiting failed: 1000ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: passwordError is not defined
+chan0405@hotmail.com:Silverchair88! | Error: passwordError is not defined
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+chan0405@hotmail.com:Silverchair88! | Error: Navigation timeout of 30000 ms exceeded
+luccafreitas13@outlook.com:Luccaf13 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+love1445@hotmail.com:Marjorie1? | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+geminicricket1@hotmail.com:Bibi5656*** | Error: Navigation timeout of 30000 ms exceeded
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: Navigation timeout of 30000 ms exceeded
+jorgem.huerta@hotmail.com:jorge1972* | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+martha.sv12@hotmail.com:Martha1029$$$ | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+ivy-rj@hotmail.com:Jenifferduarte | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+paniaguamtz1@hotmail.com:Alepaniagua01 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+lucas.banh@hotmail.com:Lb654595 | Error: Waiting for selector `#i0118` failed: Waiting failed: 5000ms exceeded
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Waiting for selector `#kmsiTitle` failed: Waiting failed: 30000ms exceeded
+chan0405@hotmail.com:Silverchair88! | Error: Navigating frame was detached
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Error: Error: failed to find element matching selector "#i0116Error"
+lucas.banh@hotmail.com:Lb654595 | Email Error: Signing in to this device requires a password on your account. Visit https://account.live.com/ResetPassword.aspx to add a password to your account. After adding a password, come back to sign in to this device.
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Error: failed to find element matching selector "#i0116Error"
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0118
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Error: failed to find element matching selector "#i0118Error"
+chan0405@hotmail.com:Silverchair88! | Error: No element found for selector: #idSIButton9
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0118
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Unknown value for options.waitUntil: networkidle1
+lucas.banh@hotmail.com:Lb654595 | Error: No element found for selector: #i0118
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Error: failed to find element matching selector "#i0118Error"
+chan0405@hotmail.com:Silverchair88! | Error: No element found for selector: #i0118
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Unhandled Error: Navigation timeout of 60000 ms exceeded
+sidneiguarda@hotmail.com:Sid@35235370 | Unhandled Error: Execution context was destroyed, most likely because of a navigation.
+chan0405@hotmail.com:Silverchair88! | Error: Unexpected navigation error after password entry
+luccafreitas13@outlook.com:Luccaf13 | Unhandled Error: Execution context was destroyed, most likely because of a navigation.
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+luccafreitas13@outlook.com:Luccaf13 | Error: Navigation timeout of 5000 ms exceeded
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Login failed
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Login failed
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Login failed
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Login failed
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: Login failed
+geminicricket1@hotmail.com:Bibi5656*** | Error: Login failed
+lucas.banh@hotmail.com:Lb654595 | Error: Password field not found
+sidneiguarda@hotmail.com:Sid@35235370 | Error: Login failed
+luccafreitas13@outlook.com:Luccaf13 | Error: Navigating frame was detached
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Navigating frame was detached

