@@ -493,3 +493,63 @@ sidneiguarda@hotmail.com:Sid@35235370 | Error: Login failed
 luccafreitas13@outlook.com:Luccaf13 | Error: Navigating frame was detached
 luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
 love1445@hotmail.com:Marjorie1? | Error: Navigating frame was detached
+chan0405@hotmail.com:Silverchair88! | Error: Navigation timeout of 5000 ms exceeded
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Login failed
+sandovalaron@outlook.com:Sandoval2171!!!!! | Error: Login failed
+geminicricket1@hotmail.com:Bibi5656*** | Error: Navigation timeout of 5000 ms exceeded
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: Navigation timeout of 5000 ms exceeded
+jorgem.huerta@hotmail.com:jorge1972* | Error: Navigation timeout of 5000 ms exceeded
+martha.sv12@hotmail.com:Martha1029$$$ | Error: Login failed
+ivy-rj@hotmail.com:Jenifferduarte | Error: Navigation timeout of 5000 ms exceeded
+paniaguamtz1@hotmail.com:Alepaniagua01 | Error: Navigation timeout of 5000 ms exceeded
+camilochis2008@hotmail.com:cuervodeodin123 | Error: Login failed
+m_urena1@hotmail.com:johanrosa123 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+gil.gmviana@hotmail.com:Gs@20082016 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+katiegunderson@hotmail.com:Katgun01 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+fp20088888888@outlook.com:Marijapantelic2008 | Error: Navigation timeout of 5000 ms exceeded
+mariapena_27@hotmail.com:maxpena137 | Error: Navigation timeout of 5000 ms exceeded
+jessi_yana1998@hotmail.com:Sully1998 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+reymonapr@hotmail.com:8092674575R | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+quintinwilliams@hotmail.com:1Jesuschrist | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+mmamego@hotmail.com:Cristian12 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+rodrilson_machado@hotmail.com:Machado007* | Error: Login failed
+xxtrtrx65@outlook.com:.123xmi.09 | Error: Navigation timeout of 5000 ms exceeded
+belkisbreman@hotmail.com:Naruto25 | Error: Navigation timeout of 5000 ms exceeded
+jhony_boss@hotmail.com:3mpr3nd3dor01 | Error: Login failed
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Navigation timeout of 5000 ms exceeded
+love1445@hotmail.com:Marjorie1? | Error: Navigation timeout of 5000 ms exceeded
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Login failed
+sandovalaron@outlook.com:Sandoval2171!!!!! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+mai.mctelecom@hotmail.com:Maimai1986#@ | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+jorgem.huerta@hotmail.com:jorge1972* | Password Error: Sign-in is blocked
+jorgem.huerta@hotmail.com:jorge1972* | Account Locked: Sign-in is blocked
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Login failed
+sandovalaron@outlook.com:Sandoval2171!!!!! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+geminicricket1@hotmail.com:Bibi5656*** | Account Locked: Sign-in is blocked
+mai.mctelecom@hotmail.com:Maimai1986#@ | Error: No element found for selector: #i0116
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Requesting main frame too early!
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+chan0405@hotmail.com:Silverchair88! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+luccafreitas13@outlook.com:Luccaf13 | Error: Login failed
+love1445@hotmail.com:Marjorie1? | Error: Login failed
+sandovalaron@outlook.com:Sandoval2171!!!!! | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+geminicricket1@hotmail.com:Bibi5656*** | Account Locked: Sign-in is blocked
+mai.mctelecom@hotmail.com:Maimai1986#@ | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+jorgem.huerta@hotmail.com:jorge1972* | Account Locked: Sign-in is blocked
+martha.sv12@hotmail.com:Martha1029$$$ | Error: Login failed
+ivy-rj@hotmail.com:Jenifferduarte | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+paniaguamtz1@hotmail.com:Alepaniagua01 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+camilochis2008@hotmail.com:cuervodeodin123 | Error: Login failed
+m_urena1@hotmail.com:johanrosa123 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+gil.gmviana@hotmail.com:Gs@20082016 | Password Error: Your account or password is incorrect. If you don't remember your password, reset it now.
+katiegunderson@hotmail.com:Katgun01 | Account Locked: Sign-in is blocked
+fp20088888888@outlook.com:Marijapantelic2008 | Error: Login failed

