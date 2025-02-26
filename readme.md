@@ -1,4 +1,6 @@
-# Hotmail Checker
+# Hotmail Checker (Not work's Anymore)
+
+# use this one instead [ElectroPuppy](https://github.com/tas33n/ElectroPuppy-Hotmail-Checker)
 
 This project is a Node.js script that authenticates email accounts and filters them based on specific criteria such as Netflix, PayPal, Facebook, Instagram, and Twitter emails. The results are logged into `live.txt` and `dead.txt` files.
 
