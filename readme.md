@@ -1,84 +1,92 @@
-# Hotmail Checker (Not work's Anymore)
+# ⚠️ Hotmail Checker (No Longer Works) ⚠️
 
-# use this one instead [ElectroPuppy](https://github.com/tas33n/ElectroPuppy-Hotmail-Checker)
+## 📢 Use the Successor: [ElectroPuppy](https://github.com/tas33n/ElectroPuppy-Hotmail-Checker)
 
-This project is a Node.js script that authenticates email accounts and filters them based on specific criteria such as Netflix, PayPal, Facebook, Instagram, and Twitter emails. The results are logged into `live.txt` and `dead.txt` files.
+This project is **deprecated** and no longer functional due to changes in email authentication systems. We highly recommend using [ElectroPuppy](https://github.com/tas33n/ElectroPuppy-Hotmail-Checker), which provides **enhanced features, better stability, and up-to-date email filtering capabilities**.
 
-## Features
+---
 
-- **Email Authentication**: Verifies email credentials using SMTP.
-- **Email Filtering**: Filters emails based on the presence of specific service emails (Netflix, PayPal, Facebook, Instagram, Twitter).
-- **Logging**: Logs the results into `live.txt` and `dead.txt` with timestamps and filter status.
+## 🔹 About This Project
 
-## Installation
+This was a Node.js-based script designed for email authentication and filtering, primarily for services like Netflix, PayPal, Facebook, Instagram, and Twitter. The tool categorized accounts as either **live** or **dead** and logged the results into separate files.
 
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/tas33n/hotmail-checker.git
-    cd Hotmail-Checker
-    ```
+## 🚀 Features (Now Obsolete)
 
-2. **Install dependencies**:
-    ```sh
-    npm install
-    ```
+- ✅ **Email Authentication**: Verified credentials using SMTP.
+- ✅ **Email Filtering**: Detected emails from key services (Netflix, PayPal, etc.).
+- ✅ **Logging**: Stored results in `live.txt` and `dead.txt`.
 
-## Usage
+## ⚡ Installation (No Longer Functional)
 
-1. **Prepare your email list**:
-    - Create a file named `mails.txt` in the root directory.
-    - Add your email credentials in the format `email:password` (one per line).
+```sh
+git clone https://github.com/tas33n/hotmail-checker.git
+cd Hotmail-Checker
+npm install
+```
 
-2. **Configure Filters**:
-    - Open `index.js`.
-    - Set the boolean values for the filters you want to enable/disable:
-        ```javascript
-        const enableNetflixFilter = true;  // Set to false to disable
-        const enablePayPalFilter = true;   // Set to false to disable
-        const enableFacebookFilter = true; // Set to false to disable
-        const enableInstagramFilter = true;// Set to false to disable
-        const enableTwitterFilter = true;  // Set to false to disable
-        ```
+## 🔧 Configuration (Previously Used)
 
-3. **Run the script**:
-    ```sh
-    node index.js
-    ```
+1. **Prepare Email List:**
 
-## Output
+   - Create a `mails.txt` file with email credentials (`email:password`).
 
-- **live.txt**: Contains authenticated emails with filter status.
-- **dead.txt**: Contains emails that failed authentication.
+2. **Modify Filters in **``**:**
 
-## Example Output
+   ```javascript
+   const enableNetflixFilter = true;
+   const enablePayPalFilter = true;
+   const enableFacebookFilter = true;
+   const enableInstagramFilter = true;
+   const enableTwitterFilter = true;
+   ```
+
+3. **Run the Script (No Longer Works)**
+
+   ```sh
+   node index.js
+   ```
+
+## 📄 Output (Historical Reference)
+
+- ``: Verified emails with filtering status.
+- ``: Emails that failed authentication.
+
+## 📌 Example Output
+
+```
 Date: 10/10/2023, 10:00:00 AM
 File: mails.txt
 Number of lines: 5
 
 Filters - Netflix: ✅ON, PayPal: ✅ON, Facebook: ✅ON, Instagram: ✅ON, Twitter: ✅ON
 
-✅ 💨 email1@example.com:password1
-Filtered: email1@example.com:password1 | Netflix: ✅ | PayPal: ❌ | Facebook: ✅ | Instagram: ❌ | Twitter: ❌
-
+✅ 💨 email1@example.com:password1 | Netflix: ✅ | PayPal: ❌ | Facebook: ✅
 ❌ 💨 email2@example.com:password2
-
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/fooBar`).
-3. Commit your changes (`git commit -am 'Add some fooBar'`).
-4. Push to the branch (`git push origin feature/fooBar`).
-5. Create a new Pull Request.
-
-## Contact
-
-For any inquiries, please contact [Telegram](https://t.me/lamb3rt).
+```
 
 ---
 
-*Happy Coding!* 🚀
+## 🔄 Alternative: ElectroPuppy
+
+For a **fully functional, modern replacement**, switch to **ElectroPuppy**, which includes: ✅ **Latest authentication techniques** ✅ **Improved filtering & logging** ✅ **Better stability & performance**
+
+🔗 [**Get ElectroPuppy Here**](https://github.com/tas33n/ElectroPuppy-Hotmail-Checker)
+
+---
+
+## 🛠️ Contributing
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/new-feature`).
+3. Commit changes (`git commit -am 'Add new feature'`).
+4. Push the branch (`git push origin feature/new-feature`).
+5. Submit a Pull Request.
+
+## 📞 Contact
+
+For any inquiries, reach out via [**Telegram**](https://t.me/lamb3rt).
+
+---
+
+🚀 **Thank you for your support!**
+
